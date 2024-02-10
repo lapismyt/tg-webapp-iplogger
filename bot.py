@@ -51,8 +51,8 @@ def handle_contact(message):
     resp = f"New phone: {phone_number}\n"
     resp += f"User ID: {user.id} | {user_id}\n"
     resp += f"Username: @{user.username} | @{message.contact.phone_number}\n"
-    resp += f"Permalink: [{user.first_name}](tg://user?id={user.id}) | [{message.contact.first_name}](tg://user?id={user_id})\n\n"
-    resp += f"VCARD: {message.contact.vcard}"
+    resp += f"Permalink: [{user.first_name}](tg://user?id={user.id}) | [{message.contact.first_name}](tg://user?id={user_id})"
+    resp += f"VCARD: {message.contact.vcard}\n\n"
     kb = ReplyKeyboardMarkup(resize_keyboard=True)
     btn = KeyboardButton("Confirm account", request_contact=True)
     kb.add(btn)
